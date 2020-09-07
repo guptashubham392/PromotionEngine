@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             
-            int totalPrice = GetTotalPrice("A,A,A,B,B,B,B,B,C,D");
+            int totalPrice = GetTotalPrice("A,B,C");
             Console.WriteLine(totalPrice);
             Console.ReadLine();
         }
 
-        private static int GetTotalPrice(string types)
+        public static int GetTotalPrice(string types)
         {
             List<Product> products = new List<Product>();
             string[] arrtype = types.Split(',');
@@ -72,6 +72,7 @@ namespace PromotionEngine
             }
             int totalPriceofC = (CounterofC * priceofC);
             int totalPriceofD = (CounterofD * priceofD);
+            Console.WriteLine(totalPriceofA + totalPriceofB + totalPriceofC + totalPriceofD + totalPriceofCD);
             return totalPriceofA + totalPriceofB + totalPriceofC + totalPriceofD + totalPriceofCD;
 
         }
