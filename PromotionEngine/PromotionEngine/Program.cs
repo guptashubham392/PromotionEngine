@@ -10,11 +10,21 @@ namespace PromotionEngine
     {
         static void Main(string[] args)
         {
-
+            
+            int totalPrice = GetTotalPrice("A,A,A,B,B,B,B,B,C,D");
+            Console.WriteLine(totalPrice);
+            Console.ReadLine();
         }
 
-        private static int GetTotalPrice(List<Product> products)
+        private static int GetTotalPrice(string types)
         {
+            List<Product> products = new List<Product>();
+            string[] arrtype = types.Split(',');
+            foreach (string type in arrtype)
+            {
+                Product p = new Product(type);
+                products.Add(p);
+            }
             int counterofA = 0;
             int priceofA = 50;
             int counterofB = 0;
@@ -65,7 +75,7 @@ namespace PromotionEngine
             return totalPriceofA + totalPriceofB + totalPriceofC + totalPriceofD + totalPriceofCD;
 
         }
-    }
+    
 }
 
     public class Product
